@@ -1,0 +1,19 @@
+.container {width: 85%; padding: 20px; margin: 20px auto;}
+
+.cards {width: 100%; padding: 5px; display: flex; flex-wrap: wrap; justify-content: space-around;}
+
+.card {width: 300px; border: 4px groove #a33327; padding: 3px; text-align: center}
+
+.card img {height: 200px; text-align: center;}
+
+h1, h2 {text-align: center; background-color:#a33327; color: white;}
+
+.formbar {display: flex; margin: auto; justify-content: center;}
+
+.formbar form {display: flex; flex-direction: column; text-align: center;}
+
+.formbar form input {display: block;}
+
+body {width: 90%; padding: 20px; margin: 20px auto;}
+
+input[type="submit"], button {background-color: black;}

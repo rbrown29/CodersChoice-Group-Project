@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="MyApp">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+        <script src="app.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
+        <link rel="stylesheet" href="./style.css">
+
+    </head>
+
+<!-- ng-init="main.getContacts()" -->
+    <body ng-controller = "MainCtrl as main" ng-init="main.getContacts()">
+
+
+    <h1>Richard and Alex's Address Book Application</h1>
+
+<hr>
+
+        <div class = "container">
+            <ul class = "cards">
+                <li ng-repeat = "contact in main.contactArray[0]" class = "card">
+                    <h1>{{contact.name}}</h1>
+                    <p>Phone: {{contact.phone}}</p>
+                    <p>Email: {{contact.email}}</p>
+                    <p>Address: {{contact.address}}</p>
+                    <button ng-click="main.showOpts(contact)">Show Options</button>
+                    <form ng-submit="main.editContact(contact);" ng-show="main.showOptions[contact.name]">
+                        <input type="text" ng-model="main.updatedContactName" placeholder="Name"/>
+                        <input type="text" ng-model="main.updatedContactPhone" placeholder="Phone"/>
+                        <input type="text" ng-model="main.updatedContactEmail" placeholder="Email"/>
+                        <input type="text" ng-model="main.updatedContactAddress" placeholder="Address"/>
+
+                        <input type="submit" value="Edit Contact"/>
+                    </form>
+                    <button ng-click="main.deleteContact(contact)">Delete Contact</button>
+                </li>
+            </ul>
+        </div>
+
+<hr>
+
+        <div class="container">
+        <form ng-submit="main.createContact()">
+            ADD Contact Info
+            <input type="text" ng-model="main.contactName" placeholder="Name"/>
+            <input type="text" ng-model="main.contactPhone" placeholder="Phone"/>
+            <input type="text" ng-model="main.contactEmail" placeholder="Email"/>
+            <input type="text" ng-model="main.contactAddress" placeholder="Address"/>
+            <input type="submit" value="Add Contact"/>
+        </form>
+        </div>
+
+    </body>
+
+
+
+
+</html>
